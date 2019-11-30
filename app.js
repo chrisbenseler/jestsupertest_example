@@ -17,7 +17,7 @@ mongoose.connection.on('connected', () => {
   console.log('MongoDB connection established successfully')
 })
 mongoose.connection.on('error', (err) => {
-  console.error('%s MongoDB connection error. Please make sure MongoDB is running.')
+  console.error('MongoDB connection error. Please make sure MongoDB is running.')
   process.exit()
 })
 
@@ -41,7 +41,7 @@ app.post('/users/signin', async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email })
 
     if (!user) {
-        res.status(401).json({status: "NOK" })
+        return res.status(401).json({status: "NOK" })
     }
 
     user.comparePassword(req.body.password, (err, isMatch) => {
