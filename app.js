@@ -1,8 +1,11 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const User = require('./models/User')
+
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
+
+const User = require('./models/User')
+const Post = require('./models/Post')
 
 const app = express()
 
@@ -23,6 +26,30 @@ mongoose.connection.on('error', (err) => {
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
+
+//add user to request if valid token is found
+app.use( async (req, res, next) => {
+
+    if(!req.headers['authorization'])
+        return next()
+    
+    const bearer = req.headers['authorization'].split('Bearer ')[1]
+    try {
+        const decoded = await jwt.verify(bearer, JWTSECRET)
+        const user = await User.findOne({ _id: decoded.id }, { password: 0 } )
+        if(user)
+            req.user = user
+        next()
+    } catch(e) {
+        next()
+    }
+})
+
+const isAuthenticated = (req, res, next) => {
+    if(!req.user)
+        res.status(401).json({ message: 'User must be authenticated' })
+    next()
+}
 
 app.post('/users/signup', async (req, res, next) => {
     const { email, password } = req.body
@@ -57,6 +84,20 @@ app.post('/users/signin', async (req, res, next) => {
         }
     })
 })
+
+app.post('/posts', isAuthenticated, async (req, res, next) => {
+    const { title, content } = req.body
+    const p = new Post({  title, content, user: req.user })
+    try {
+        await p.save()
+        res.json(p)
+    } catch(e) {
+        next(e)
+    }
+})
+
+
+
 
 if(process.env.NODE_ENV !== 'test')  {
 
