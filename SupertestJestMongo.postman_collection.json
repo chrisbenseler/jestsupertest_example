@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "206a23cc-9836-4338-8ac1-cb8dc2a3c9d2",
+		"_postman_id": "97d32da5-3c75-4725-81d9-c8679460d5aa",
 		"name": "SupertestJestMongo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -68,6 +68,289 @@
 					"path": [
 						"users",
 						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST create post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUST edit post",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts/5de3a8aebeacd15f5827404c",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"5de3a8aebeacd15f5827404c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE remove Post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts/5de3a8aebeacd15f5827404c",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"5de3a8aebeacd15f5827404c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Post",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts/5de42f53f23ed56d60f70006",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts",
+						"5de42f53f23ed56d60f70006"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET list posts",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET list posts from user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/users/5de2cfe7cde0471beca78b49/posts",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"users",
+						"5de2cfe7cde0471beca78b49",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET user profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZTJjZmU3Y2RlMDQ3MWJlY2E3OGI0OSIsImV4cCI6MTU3NTgwNTUxOCwiaWF0IjoxNTc1MjAwNzE4fQ.n5g1IiXAI7Hp_sopVI4N-Omfkp2gqSOshhW4hR0WPvM"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"test title\",\n\t\"content\": \"test content 1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/profile",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile"
 					]
 				}
 			},

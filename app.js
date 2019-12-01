@@ -85,6 +85,29 @@ app.post('/users/signin', async (req, res, next) => {
     })
 })
 
+//REST Post model
+app.get('/posts/:id', async (req, res, next) => {
+
+    try {
+        const post = await Post.findOne({ _id: req.params.id })
+        if(!post)
+            return res.status(404).json({ message: 'Post not found' })
+        res.json(post)
+    } catch(e) {
+        next(e)
+    }
+})
+
+app.get('/posts', async (req, res, next) => {
+
+    try {
+        const posts = await Post.find()
+        res.json({ posts })
+    } catch(e) {
+        next(e)
+    }
+})
+
 app.post('/posts', isAuthenticated, async (req, res, next) => {
     const { title, content } = req.body
     const p = new Post({  title, content, user: req.user })
@@ -124,6 +147,26 @@ app.delete('/posts/:id', isAuthenticated, async (req, res, next) => {
     }
 })
 
+//Nested posts - from user
+app.get('/users/:user_id/posts', async (req, res, next) => {
+
+    try {
+        const posts = await Post.find({ user: req.params.user_id })
+        res.json({ posts })
+    } catch(e) {
+        next(e)
+    }
+})
+
+//user
+app.get('/profile', isAuthenticated, async (req, res, next) => {
+
+    try {
+        res.json({ profile: { email: req.user.email } })
+    } catch(e) {
+        next(e)
+    }
+})
 
 if(process.env.NODE_ENV !== 'test')  {
 
