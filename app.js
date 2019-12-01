@@ -96,7 +96,33 @@ app.post('/posts', isAuthenticated, async (req, res, next) => {
     }
 })
 
+app.put('/posts/:id', isAuthenticated, async (req, res, next) => {
+    const { title, content } = req.body
+    
+    try {
+        const post = await Post.findOne({ user: req.user,_id: req.params.id })
+        if(!post)
+            return res.status(401).json({ message: 'User does not have permission to edit this post' })
+        post.title = title
+        post.content = content
+        await post.save()
+        res.json(post)
+    } catch(e) {
+        next(e)
+    }
+})
 
+app.delete('/posts/:id', isAuthenticated, async (req, res, next) => {
+    
+    try {
+        const deletion = await Post.deleteOne({ user: req.user, _id: req.params.id })
+        if(deletion.deletedCount === 0)
+            return res.status(400).json({ status: 'NOK', message: 'Could not delete the post'})
+        res.json({ status: 'OK', message: 'Post was deleted'})
+    } catch(e) {
+        next(e)
+    }
+})
 
 
 if(process.env.NODE_ENV !== 'test')  {
