@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +16,10 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.3.5",
     "mongoose": "^5.7.12"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
   }
 }

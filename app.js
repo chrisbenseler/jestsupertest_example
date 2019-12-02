@@ -87,7 +87,6 @@ app.post('/users/signin', async (req, res, next) => {
 
 //REST Post model
 app.get('/posts/:id', async (req, res, next) => {
-
     try {
         const post = await Post.findOne({ _id: req.params.id })
         if(!post)
@@ -99,7 +98,6 @@ app.get('/posts/:id', async (req, res, next) => {
 })
 
 app.get('/posts', async (req, res, next) => {
-
     try {
         const posts = await Post.find()
         res.json({ posts })
@@ -121,7 +119,6 @@ app.post('/posts', isAuthenticated, async (req, res, next) => {
 
 app.put('/posts/:id', isAuthenticated, async (req, res, next) => {
     const { title, content } = req.body
-    
     try {
         const post = await Post.findOne({ user: req.user,_id: req.params.id })
         if(!post)
@@ -136,7 +133,6 @@ app.put('/posts/:id', isAuthenticated, async (req, res, next) => {
 })
 
 app.delete('/posts/:id', isAuthenticated, async (req, res, next) => {
-    
     try {
         const deletion = await Post.deleteOne({ user: req.user, _id: req.params.id })
         if(deletion.deletedCount === 0)
@@ -149,7 +145,6 @@ app.delete('/posts/:id', isAuthenticated, async (req, res, next) => {
 
 //Nested posts - from user
 app.get('/users/:user_id/posts', async (req, res, next) => {
-
     try {
         const posts = await Post.find({ user: req.params.user_id })
         res.json({ posts })
@@ -160,7 +155,6 @@ app.get('/users/:user_id/posts', async (req, res, next) => {
 
 //user
 app.get('/profile', isAuthenticated, async (req, res, next) => {
-
     try {
         res.json({ profile: { email: req.user.email } })
     } catch(e) {
