@@ -8,3 +8,5 @@
 ### [Authenticated endpoints to test in the future](https://medium.com/@chrisbenseler/testing-nodejs-apis-pt-ii-some-authenticated-endpoints-to-test-in-the-future-1ae2c5bbf06f)
 
 ### [Set up Jest + Supertest](https://medium.com/@chrisbenseler/testing-nodejs-apis-pt-iii-set-up-jest-supertest-and-tasks-49725f9b8fba)
+
+### [Writing the first test](https://medium.com/@chrisbenseler/testing-nodejs-apis-pt-iv-writing-the-first-test-6a2c80afecbe)
