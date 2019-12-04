@@ -30,7 +30,7 @@ async function createFakePosts() {
 
 }
 
-mongoose.connect(process.env.MONGOURL, { useNewUrlParser: true })
+mongoose.connect(process.env.MONGOURL, { useNewUrlParser: true, })
 mongoose.connection.on('connected', async () => {
   console.log('MongoDB connection established successfully with test')
   await mongoose.connection.db.dropDatabase()
