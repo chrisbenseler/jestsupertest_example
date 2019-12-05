@@ -33,7 +33,7 @@ services:
       - mongo
     links:
       - mongo
-    command: "npm run test"
+    command: "npm run testgithub"
 
   mongo:
     image: mongo:latest

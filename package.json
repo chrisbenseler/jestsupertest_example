@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env MONGOURL=mongodb://localhost:27017/nodejs_jestsupertestmongodb_example_test NODE_ENV=test jest --testTimeout=10000",
-    "migrate:reset": "cross-env NODE_ENV=test MONGOURL=mongodb://localhost:27017/nodejs_jestsupertestmongodb_example_test node ./test/test_migrate.js",
+    "testgithub": "node ./test/test_migrate.js && jest --testTimeout=10000",
+    "test": "MONGOURL=mongodb://localhost:27017/nodejs_jestsupertestmongodb_example_test jest --testTimeout=10000",
+    "migrate:reset": "MONGOURL=mongodb://localhost:27017/nodejs_jestsupertestmongodb_example_test node ./test/test_migrate.js",
     "pretest": "npm run migrate:reset",
     "start": "nodemon app.js"
   },
