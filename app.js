@@ -21,7 +21,7 @@ mongoose.connection.on('connected', () => {
 })
 mongoose.connection.on('error', (err) => {
   console.error('MongoDB connection error. Please make sure MongoDB is running.')
-  process.exit()
+  process.exit(err)
 })
 
 app.use(bodyParser.json())
