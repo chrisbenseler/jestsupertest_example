@@ -14,7 +14,7 @@ app.set('port', process.env.EXPRESS_PORT || 8080)
 
 const JWTSECRET  = process.env.EXPRESS_JWTSECRET || 'askncd90asujcsaknc29ues'
 
-const mongodbUri = process.env.MONGOURL || 'mongodb://localhost:27017/nodejs_jestsupertestmongodb_example'
+const mongodbUri = process.env.MONGOURL || 'mongodb://localhost:27087/nodejs_jestsupertestmongodb_example'
 mongoose.connect(mongodbUri, { useNewUrlParser: true })
 mongoose.connection.on('connected', () => {
   console.log('MongoDB connection established successfully')
