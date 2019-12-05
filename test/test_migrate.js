@@ -36,6 +36,7 @@ mongoose.connection.on('connected', async () => {
   await mongoose.connection.db.dropDatabase()
   await createFakeUsers()
   await createFakePosts()
+  await mongoose.connection.close()
   process.exit()
 })
 

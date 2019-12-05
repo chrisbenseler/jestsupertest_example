@@ -1,4 +1,6 @@
 const request = require('supertest')
+const mongoose = require('mongoose')
+
 const Post = require('../../models/Post')
 
 let app
@@ -19,6 +21,7 @@ describe('Post model Endpoints', () => {
 
     afterAll(async () => {
         await app.close()
+        await mongoose.connection.close()
     })
 
     it('should try to get all posts', async () => {

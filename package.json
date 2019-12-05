@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "testgithub": "node ./test/test_migrate.js && jest --testTimeout=10000",
+    "testgithub": "node ./test/test_migrate.js && jest --testTimeout=10000 --forceExit",
     "test": "MONGOURL=mongodb://localhost:27017/nodejs_jestsupertestmongodb_example_test jest --testTimeout=10000",
     "migrate:reset": "MONGOURL=mongodb://localhost:27017/nodejs_jestsupertestmongodb_example_test node ./test/test_migrate.js",
     "pretest": "npm run migrate:reset",

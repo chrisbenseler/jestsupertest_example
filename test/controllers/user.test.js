@@ -1,14 +1,17 @@
 const request = require('supertest')
-let app;
+const mongoose = require('mongoose')
+
+let app
 
 describe('User Authentication Endpoints', () => {
 
     beforeAll(async () => {
-        app = require('../../app')
+        app = require('../../app') 
     })
 
     afterAll(async () => {
         await app.close()
+        await mongoose.connection.close()
     })
 
     it('should try to do login with valid credentials and success', async () => {
