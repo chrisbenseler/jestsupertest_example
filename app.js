@@ -83,7 +83,7 @@ app.post('/users/signin', async (req, res, next) => {
                 id, name, token
             })
         } else {
-            res.stattus(401).json({status: "NOK" })
+            res.status(401).json({status: "NOK" })
         }
     })
 })
